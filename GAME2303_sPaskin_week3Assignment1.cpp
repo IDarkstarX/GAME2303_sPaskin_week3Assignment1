@@ -69,23 +69,25 @@ int main() //cout << "\n";
         cout << "ERROR! Cannot open file!";
     }
     
-    /* this makes program crash ;-;
     while (!cleanSweep) {
         for (int i = 0; i < vRecords.size(); i++) {
-            foundASwap = true;
+            foundASwap = false;
 
-            if (vRecords[i-1].grade > vRecords[i].grade) {
+            if (i != 0 && vRecords[i-1].grade > vRecords[i].grade) {
 
-                foundASwap = false;
+                foundASwap = true;
 
+                Record temp(vRecords[i].firstName, vRecords[i].lastName, vRecords[i].grade);
+
+                vRecords[i] = vRecords[i - 1];
+                vRecords[i - 1] = temp;
 
             }
         }
-        if (foundASwap) {
+        if (!foundASwap) {
             cleanSweep = true;
         }
     }
-    */
 
     for (int i = 0; i < vRecords.size(); i++) {
 
