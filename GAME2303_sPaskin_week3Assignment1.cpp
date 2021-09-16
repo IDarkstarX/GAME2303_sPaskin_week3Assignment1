@@ -77,10 +77,10 @@ int main() //cout << "\n";
 
                 foundASwap = true;
 
-                Record temp(vRecords[i].firstName, vRecords[i].lastName, vRecords[i].grade);
+                Record temp(vRecords[i-1].firstName, vRecords[i-1].lastName, vRecords[i-1].grade);
 
-                vRecords[i] = vRecords[i - 1];
-                vRecords[i - 1] = temp;
+                vRecords[i-1] = vRecords[i];
+                vRecords[i] = temp;
 
             }
         }
