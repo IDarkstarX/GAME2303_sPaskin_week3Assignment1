@@ -1,3 +1,4 @@
 ﻿  GAME2303_sPaskin_week3Assignment1.cpp
-C:\Users\Darkstar\Documents\Scool Files\AI Class\GAME2303_sPaskin_week3Assignment1\GAME2303_sPaskin_week3Assignment1.cpp(103,46): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Darkstar\Documents\Scool Files\AI Class\GAME2303_sPaskin_week3Assignment1\GAME2303_sPaskin_week3Assignment1.cpp(82,9): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Darkstar\Documents\Scool Files\AI Class\GAME2303_sPaskin_week3Assignment1\GAME2303_sPaskin_week3Assignment1.cpp(121,46): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   GAME2303_sPaskin_week3Assignment1.vcxproj -> C:\Users\Darkstar\Documents\Scool Files\AI Class\GAME2303_sPaskin_week3Assignment1\x64\Debug\GAME2303_sPaskin_week3Assignment1.exe

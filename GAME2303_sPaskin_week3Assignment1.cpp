@@ -13,9 +13,9 @@ class Record {
 public:
     string firstName;
     string lastName;
-    string grade;
+    int grade;
 
-    Record(string firstName, string lastName, string grade) {
+    Record(string firstName, string lastName, int grade) {
 
         this->firstName = firstName;
         this->lastName = lastName;
@@ -41,7 +41,7 @@ int main() //cout << "\n";
 
     bool cleanSweep = false;
     bool foundASwap = false;
-    
+
     if (myfile.is_open()) {
 
         while (getline(myfile, toSplit))
@@ -54,33 +54,51 @@ int main() //cout << "\n";
 
             while (ss >> word)
             {
+                cout << "THE WORD IS: <" << word << ">" << endl;
                 if (count == 1) {
                     tempFirstName = word;
-                } else if (count == 2) {
+                }
+                else if (count == 2) {
                     tempLastName = word;
-                } else {
+                }
+                else {
                     tempGrade = word;
                 }
                 count++;
             }
-            vRecords.push_back(Record(tempFirstName, tempLastName, tempGrade));
+            vRecords.push_back(Record(tempFirstName, tempLastName, stoi(tempGrade)));
         }
-    } else {
+    }
+    else {
         cout << "ERROR! Cannot open file!";
     }
-    
+
+    for (int i = 0; i < vRecords.size(); i++)
+    {
+        cout << vRecords[i].firstName << endl;
+    }
+
     while (!cleanSweep) {
-        for (int i = 0; i < vRecords.size(); i++) {
+        for (int i = vRecords.size() - 2; i > 0; i--) {
+            cout << "FOR LOOP: " << i << endl;
             foundASwap = false;
 
-            if (i != 0 && vRecords[i-1].grade > vRecords[i].grade) {
+            if (vRecords[i].grade < vRecords[i + 1].grade) {
+
+
+                cout << "index: " << i << endl;
+                cout << "swapping " << vRecords[i].firstName << " with " << vRecords[i + 1].firstName << endl;
 
                 foundASwap = true;
 
-                Record temp(vRecords[i-1].firstName, vRecords[i-1].lastName, vRecords[i-1].grade);
+                Record temp(vRecords[i].firstName, vRecords[i].lastName, vRecords[i].grade);
+                cout << "temp = " << vRecords[i].firstName << endl;
 
-                vRecords[i-1] = vRecords[i];
-                vRecords[i] = temp;
+                vRecords[i] = vRecords[i + 1];
+                cout << "i = " << vRecords[i].firstName << endl;
+
+                vRecords[i + 1] = temp;
+                cout << "i+1 = " << vRecords[i + 1].firstName << endl;
 
             }
         }
@@ -91,13 +109,13 @@ int main() //cout << "\n";
 
     for (int i = 0; i < vRecords.size(); i++) {
 
-        sumGrade += stoi(vRecords[i].grade);
+        sumGrade += (vRecords[i].grade);
 
         cout << vRecords[i].firstName << " ";
         cout << vRecords[i].lastName << " ";
         cout << vRecords[i].grade << endl;
 
-        
+
     }
 
     averageGrade = sumGrade / vRecords.size();
